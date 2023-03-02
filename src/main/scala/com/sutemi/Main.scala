@@ -16,7 +16,7 @@ object Main extends IOApp {
         else IO.unit
       orig = new File(args(0))
       dest = new File(args(1))
-      count <- CopyFile.copy(orig, dest)
+      count <- CopyFile.copy[IO](orig, dest)
       _ <- IO.println(s"Copied $count bytes from ${orig.getPath} to ${dest.getPath}")
     } yield ExitCode.Success
 }
